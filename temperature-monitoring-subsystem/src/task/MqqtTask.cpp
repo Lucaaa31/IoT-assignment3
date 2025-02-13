@@ -1,4 +1,4 @@
-#include "../api/MqttTask.h"
+#include "MqttTask.h"
 
 MqttTask::MqttTask(const char* mqttServer, 
                  int mqttPort, 

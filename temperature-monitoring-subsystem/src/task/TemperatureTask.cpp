@@ -1,4 +1,4 @@
-#include "../api/TemperatureTask.h"
+#include "TemperatureTask.h"
 
 TemperatureTask::TemperatureTask(int dhtPin, 
                                 SharedState& state, 

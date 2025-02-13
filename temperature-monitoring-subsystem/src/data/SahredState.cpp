@@ -1,5 +1,5 @@
-#include "../api/SharedState.h"
-#include "./config/config.h"
+#include "SharedState.h"
+#include "config.h"
 
 SharedState::SharedState()
     : temperature(TS), frequency(FS), wifiNetwork(false), mqttNetwork(false), lastReadTime(0) {

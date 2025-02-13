@@ -3,8 +3,8 @@
 
 #include <WiFi.h>
 #include <PubSubClient.h>
-#include "./config/config.h"
-#include "./data/api/SharedState.h"
+#include "config.h"
+#include "SharedState.h"
 
 #define MSG_BUFFER_SIZE 50
 

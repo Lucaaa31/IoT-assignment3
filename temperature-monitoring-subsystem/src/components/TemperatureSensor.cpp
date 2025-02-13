@@ -1,4 +1,4 @@
-#include "../api/TemperatureSensor.h"
+#include "TemperatureSensor.h"
 
 TemperatureSensor::TemperatureSensor(int pin) : sensorPin(pin) {
     pinMode(sensorPin, INPUT);

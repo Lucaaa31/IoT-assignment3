@@ -36,7 +36,7 @@ public class MQTTAgent extends AbstractVerticle {
                     String payload = message.payload().toString();
                     log("Messaggio ricevuto: [" + payload + "]");
 
-                    // Se il messaggio è nel formato "Temperature: XX", estrai il valore numerico
+                    // Se il messaggio è nel formato "XX", estrai il valore numerico
                     try {
                         int temperature = Integer.parseInt(payload);
                         tm.addTemp(temperature);

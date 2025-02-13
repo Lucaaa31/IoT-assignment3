@@ -42,7 +42,7 @@ public class SerialLoop extends Thread{
 
     /*
      formato messaggio ricevuto [MAAA]
-     M = modalità
+     M = modalità -> N = no cambiamento, M = cambiata in man, A = cambiata in auto
      A = apertura
      */
     void receive(){
@@ -103,6 +103,7 @@ public class SerialLoop extends Thread{
             msg.append("N");
         }
 
+        //prepara l'invio dell'apertura nel caso sia automatico
         if (mode.getMode() == ModeType.AUTOMATIC){
             int opening = tManager.getOpening();
             if (opening < 100 && opening > 9) {
@@ -112,6 +113,7 @@ public class SerialLoop extends Thread{
             } else {
                 msg.append(opening);
             }
+        //prepara l'invio della temperatira nel caso sia manuale
         }else if (mode.getMode() == ModeType.MANUAL){
             if (tManager.getLast() < 0){
                 msg.append("-");
@@ -121,36 +123,13 @@ public class SerialLoop extends Thread{
                 msg.append(Math.abs(tManager.getLast()));
             }
         }
-
-        /* 
-        if (mode.getMode() == ModeType.AUTOMATIC){
-            msg.append("A");
-            int opening = tManager.getOpening();
-            if (opening < 100 && opening > 9) {
-                msg.append("0").append(opening);
-            } else if (opening < 10) {
-                msg.append("00").append(opening);
-            } else {
-                msg.append(opening);
-            }
-        }else if (mode.getMode() == ModeType.MANUAL){
-            msg.append("M");
-            if (tManager.getLast() < 0){
-                msg.append("-");
-                msg.append(Math.abs(tManager.getLast()));
-            }else if (tManager.getLast() > 0){
-                msg.append("+");
-                msg.append(Math.abs(tManager.getLast()));
-            }
-        }*/
-
         // Invia il messaggio
         channel.sendMsg(msg.toString());
         log("           send -> " + msg.toString());
     }
 
     private void log (final String msg){
-        //System.out.println("[SERIAL LOOP] " + msg);
+        System.out.println("[SERIAL LOOP] " + msg);
     }
 
     private boolean isNewMode(final char firstChar){

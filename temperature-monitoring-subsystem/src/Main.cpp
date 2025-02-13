@@ -1,8 +1,8 @@
 #include <Arduino.h>
-#include "./data/api/SharedState.h"
-#include "./task/api/LedTask.h"
-#include "./task/api/TemperatureTask.h"
-#include "./task/api/MqttTask.h"
+#include "SharedState.h"
+#include "LedTask.h"
+#include "TemperatureTask.h"
+#include "MqttTask.h"
 
 SharedState sharedState;
 

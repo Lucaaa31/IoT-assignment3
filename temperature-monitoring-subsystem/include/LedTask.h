@@ -1,9 +1,9 @@
 #ifndef LEDTASK_H
 #define LEDTASK_H
 
-#include "./data/api/SharedState.h"
-#include "./config/config.h"
-#include "./components/api/LedManager.h"
+#include "SharedState.h"
+#include "config.h"
+#include "LedManager.h"
 
 #include <Arduino.h>
 
